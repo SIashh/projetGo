@@ -24,19 +24,19 @@ func main() {
   fromCollector := make(chan int, 5)
   go collecteur(fromCollector)
 
-//***************************************************************************************************
-
-  if err != nil {
-    fmt.Println(err)
-  }
-  for{
-    connexion, err := listener.Accept()
-    if err != nil {
-      fmt.Println(err)
-    }
-    go traitementConnection(connexion, messageAAfficher)
-  }
-  wg.Wait()
+// //***************************************************************************************************
+//
+//   if err != nil {
+//     fmt.Println(err)
+//   }
+//   for{
+//     connexion, err := listener.Accept()
+//     if err != nil {
+//       fmt.Println(err)
+//     }
+//     go traitementConnection(connexion, messageAAfficher)
+//   }
+//   wg.Wait()
 }
 
 func collecteur(fromCollector chan int){
@@ -65,48 +65,48 @@ func collecteur(fromCollector chan int){
   }
 }
 
-func traitementConnection(connexion net.Conn, messageAAfficher chan string){
-  writer := bufio.NewWriter(connexion)
-  _, _ = writer.WriteString("tki?\n")
-  writer.Flush()
-  reader := bufio.NewReader(connexion)
-  pseudo, _ := reader.ReadString('\n')
-  var nouveauPseudo bool = false
-  for !nouveauPseudo {
-    nouveauPseudo = true
-    for _, pseudos := range tablePseudo {
-      nouveauPseudo = pseudo != pseudos
-      if ! nouveauPseudo {
-        break
-      }
-    }
-    if ! nouveauPseudo {
-      _, _ = writer.WriteString("tkn!tki?\n")
-    }
-  }
-  _, _ = writer.WriteString("ok!\n")
-  fmt.Print("***** Un utilisateur vient de se connecter : " + pseudo)
-  tablePseudo = append(tablePseudo, pseudo)
-  writer.Flush()
-  var erreur error = nil
-  var message string
-  for erreur == nil {
-    message, erreur = reader.ReadString('\n')
-    if erreur == nil{
-      messageAAfficher <- ("----- " + pseudo + "> " + message)
-    }else{
-      fmt.Print("***** Un utilisateur vient de se déconnecter : " + pseudo)
-    }
-  }
-}
-
-func afficherMessage(messageAAfficher chan string){
-  compteur := 1
-  for{
-    select {
-    case msg := <-messageAAfficher:
-      fmt.Print(compteur, " : ", msg)
-      compteur++
-    }
-  }
-}
+// func traitementConnection(connexion net.Conn, messageAAfficher chan string){
+//   writer := bufio.NewWriter(connexion)
+//   _, _ = writer.WriteString("tki?\n")
+//   writer.Flush()
+//   reader := bufio.NewReader(connexion)
+//   pseudo, _ := reader.ReadString('\n')
+//   var nouveauPseudo bool = false
+//   for !nouveauPseudo {
+//     nouveauPseudo = true
+//     for _, pseudos := range tablePseudo {
+//       nouveauPseudo = pseudo != pseudos
+//       if ! nouveauPseudo {
+//         break
+//       }
+//     }
+//     if ! nouveauPseudo {
+//       _, _ = writer.WriteString("tkn!tki?\n")
+//     }
+//   }
+//   _, _ = writer.WriteString("ok!\n")
+//   fmt.Print("***** Un utilisateur vient de se connecter : " + pseudo)
+//   tablePseudo = append(tablePseudo, pseudo)
+//   writer.Flush()
+//   var erreur error = nil
+//   var message string
+//   for erreur == nil {
+//     message, erreur = reader.ReadString('\n')
+//     if erreur == nil{
+//       messageAAfficher <- ("----- " + pseudo + "> " + message)
+//     }else{
+//       fmt.Print("***** Un utilisateur vient de se déconnecter : " + pseudo)
+//     }
+//   }
+// }
+//
+// func afficherMessage(messageAAfficher chan string){
+//   compteur := 1
+//   for{
+//     select {
+//     case msg := <-messageAAfficher:
+//       fmt.Print(compteur, " : ", msg)
+//       compteur++
+//     }
+//   }
+// }
