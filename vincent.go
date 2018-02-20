@@ -58,7 +58,7 @@ func collecteur(fromCollector chan int){
         if err != nil {
           fmt.Println(err)
         }else{
-          fromCollector <- valeur;
+          fromCollector <- valeur; // ajout de la requete au channel
         }
       }
     }
