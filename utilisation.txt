@@ -1,6 +1,7 @@
-Manuel d'utilisation
+Manuel d’utilisation :
 
-- Pour lancer le serveur, se placer dans le dossier projetGo et exécuter la commande ./bin/serveur
-- Pour lancer le client, se placer également dans le dossier projetGo et exécuter la commande ./bin/client
-- Sur le client, pour lancer une demande de tâche, saisir un nombre strictement positif.
-- On peut lancer au maximum 
+	Pour utiliser le serveur, lancez l’exécutable "serveur" dans le dossier "bin" de votre espace de travail.
+En parallèle, lancez l’exécutable "client" se trouvant au même endroit. Sur le client entrez simplement un
+nombre entier supérieur à zéro et vous devriez voir apparaître l’exécution de la tache sur le serveur. Le
+client se referme juste après avoir envoyé sa tache et le serveur peut supporter trois taches en même-temps
+ainsi que cinq taches en attentes.

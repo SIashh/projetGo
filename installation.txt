@@ -1,3 +1,14 @@
+Manuel d’installation :
+
+	Pour pouvoir utiliser notre projet vous disposez d’un dossier src contenant toute arborescence de notre
+projet. Dans un espace de travail go, créez deux dossiers, bin et pkg, puis placer notre dossier src à coté de
+ces deux dossiers. Afin de compiler les fichiers, vous devez vous assuré que votre espace de travail est bien
+reconnu par go, si n’est pas le cas placer vous dans votre espace de travail et entrez la commande : 
+export GOPATH=$PWD
+Vous pouvez ensuite compiler le serveur et le client en entrant les commande respectives :
+go install serveur et go install client
+Après cela deux exécutables seront créés dans le dossier bin.
+
 Arborescence du projet après décompression de l'archive :
 
 projetGo
