@@ -1,0 +1,47 @@
+Arborescence du projet après décompression de l'archive :
+
+projetGo
+    |
+    |----bin
+    |       |
+    |       |----client (exécutable)
+    |       |
+    |       |----serveur (exécutable)
+    |
+    |----pkg (selon la machine utilisée)
+    |      |
+    |      |----linux_amd64
+    |                |
+    |                |----serveur
+    |                        |
+    |                        |----collecteur.a
+    |                        |
+    |                        |----repartiteur.a
+    |                        |
+    |                        |----travailleur.a
+    |
+    |----src
+    |      |
+    |      |----client
+    |      |        |
+    |      |        |----main.go
+    |      |
+    |      |----serveur
+    |               |
+    |               |----collecteur
+    |               |        |
+    |               |        |----collecteur.go
+    |               |
+    |               |----repartiteur
+    |               |        |
+    |               |        |----collecteur.go
+    |               |
+    |               |----travailleur
+    |               |        |
+    |               |        |----collecteur.go
+    |               |
+    |               |----main.go
+    |
+    |----installation.txt
+    |
+    |----utilisation.txt
