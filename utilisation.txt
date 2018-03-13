@@ -1,0 +1,6 @@
+Manuel d'utilisation
+
+- Pour lancer le serveur, se placer dans le dossier projetGo et exécuter la commande ./bin/serveur
+- Pour lancer le client, se placer également dans le dossier projetGo et exécuter la commande ./bin/client
+- Sur le client, pour lancer une demande de tâche, saisir un nombre strictement positif.
+- On peut lancer au maximum 
